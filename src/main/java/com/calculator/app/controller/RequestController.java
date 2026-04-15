@@ -60,4 +60,10 @@ public class RequestController {
 
 		return "result";
 	}
+	
+	@GetMapping("")
+	public String redirectToApi() {
+	    return "redirect:/api/";
+	}
+	
 }
