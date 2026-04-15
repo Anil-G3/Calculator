@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+
+<style>
+:root {
+    --bg: #f5f5f7;
+    --card: #ffffff;
+    --text: #1d1d1f;
+    --muted: #6e6e73;
+    --accent: #1d1d1f;
+    --border: #d2d2d7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: var(--bg);
+    font-family: system-ui, -apple-system, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator {
+    background: var(--card);
+    width: 100%;
+    max-width: 360px;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+}
+
+h1 {
+    text-align: center;
+    color: var(--text);
+    font-size: 1.35rem;
+    margin-bottom: 14px;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 11px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    color: var(--text);
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+button {
+    padding: 11px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #020617;
+    color: #f5f5f7;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+button:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.thar {
+	text-align: end;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="calculator">
+    <h1>Calculator</h1>
+	
+	
+
+    <form action="http://localhost:8080/api/calculate" method="get">
+
+        <div class="form-group">
+            <label>First Number</label>
+            <input type="number" name="number1" required>
+        </div>
+
+        <div class="form-group">
+            <label>Second Number</label>
+            <input type="number" name="number2" required>
+        </div>
+		
+		<p><b>Result: <span th:text="${res}" ></span></b></p>
+
+        <div class="buttons">
+            <button name="operation" value="add">Add</button>
+            <button name="operation" value="sub">Subtract</button>
+            <button name="operation" value="multiply">Multiply</button>
+            <button name="operation" value="divide">Divide</button>
+        </div>
+		
+		<p class="thar"><b>~Thar</b></p>
+
+    </form>
+</div>
+
+</body>
+</html>
