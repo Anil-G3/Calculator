@@ -3,14 +3,11 @@ package com.calculator.app.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.calculator.app.service.RequestService;
 
 @Controller
-@RequestMapping("/api")
 public class RequestController {
 
 	private final RequestService requestService;
@@ -61,9 +58,5 @@ public class RequestController {
 		return "result";
 	}
 	
-	@GetMapping("")
-	public String redirectToApi() {
-	    return "redirect:/api/";
-	}
 	
 }
